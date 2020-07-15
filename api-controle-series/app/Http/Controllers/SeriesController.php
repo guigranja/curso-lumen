@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Serie;
 
-class SeriesController
+class SeriesController extends BaseController
 {
-    public function index()
+    public function __construct()
     {
-        return [
-            'Friends',
-            'Peaky Blinders',
-            'That 70s Show'
-        ];
+        $this->classe = Serie::class;
     }
 }
