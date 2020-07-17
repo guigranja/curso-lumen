@@ -8,9 +8,15 @@ abstract class BaseController
 {
     protected $classe;
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->classe::all();
+        /*
+         * "paginate" -> Trata a paginação
+         *
+         * Alem dos resultados, retorna o link da primeira pagina. O link da ultima pagina.
+         * Link para proxima pagina. O caminho. Qtd de itens por pagina. O total de intens buscados.
+         * */
+        return $this->classe::paginate($request->per_page);
     }
 
     /*

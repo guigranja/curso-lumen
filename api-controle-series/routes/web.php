@@ -22,7 +22,7 @@ $router->get('/', function () use ($router) {
 /*
  * Criando grupos de rotas
  * */
-$router->group(['prefix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
 
     /*
      *  Manipulando Series
@@ -33,6 +33,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->get('{id}', 'SeriesController@getSerie');
         $router->put('{id}', 'SeriesController@update');
         $router->delete('{id}', 'SeriesController@destroy');
+
+        $router->get('{serie_id}/episodios', 'EpisodiosController@epPorSerie');
     });
 
     $router->group(['prefix' => 'episodios'], function () use ($router) {
@@ -43,3 +45,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('{id}', 'EpisodiosController@destroy');
     });
 });
+
+$router->post('/api/login', 'TokenController@gerarToken');

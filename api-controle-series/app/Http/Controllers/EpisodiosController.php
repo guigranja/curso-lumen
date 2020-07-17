@@ -10,4 +10,11 @@ class EpisodiosController extends BaseController
     {
         $this->classe = Episodio::class;
     }
+
+    public function epPorSerie(int $serie_id)
+    {
+        return Episodio::query()
+            ->where('serie_id', $serie_id)
+            ->paginate();
+    }
 }
