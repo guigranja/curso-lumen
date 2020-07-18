@@ -12,8 +12,8 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         \App\User::create([
-            'email' => 'teste@email',
-            'password' => \Illuminate\Support\Facades\Hash::make('teste')
+            'email' => 'guilherme@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('Guilherme8593_8593')
         ]);
     }
 }

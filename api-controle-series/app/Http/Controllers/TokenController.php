@@ -35,10 +35,7 @@ class TokenController extends Controller
         /*
          * Gerando token
          * */
-        $token = JWT::encode(
-            ['email' => $request->email],
-            env('JWT_KEY')
-        );
+        $token = JWT::encode(['email' => $request->email], env('JWT_KEY'));
 
         return [
             'access_token' => $token

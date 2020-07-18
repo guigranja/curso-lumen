@@ -22,7 +22,7 @@ $router->get('/', function () use ($router) {
 /*
  * Criando grupos de rotas
  * */
-$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => 'autenticador'], function () use ($router) {
 
     /*
      *  Manipulando Series
